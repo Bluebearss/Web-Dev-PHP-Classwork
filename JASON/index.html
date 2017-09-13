@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<!-- Brian Zhu -->
+<html>
+	<head>
+		<title></title>
+		<style>
+		</style>
+		<script>
+			function initialize()
+			{
+				outbox = document.getElementById("result");
+				var request = new XMLHttpRequest();
+				request.onreadystatechange = function()
+				{
+					if (request.readyState == 4)
+					{
+						myArray = request.responseText;
+						outbox.innerHTML = myArray;
+					}
+				}
+				
+				var url = "json.php?one=A&two=B&three=C";
+				request.open("GET", url, true);
+				request.send(null);
+			}
+		</script>
+	</head>
+	
+	<body>
+		<button onclick = "initialize();">Go</button>
+		<div id = "result"></div>
+	</body>
+</html>
